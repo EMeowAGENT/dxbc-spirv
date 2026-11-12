@@ -556,6 +556,7 @@ Scope DivergenceAnalysis::determineScopeForBuiltIn(const Op& op) {
     /* Quads all compute the same sample in different pixels */
     case BuiltIn::eSampleId:
     case BuiltIn::eSamplePosition:
+    case BuiltIn::eShadingRate:
       return Scope::eQuad;
 
     /* Workgroup-uniform */

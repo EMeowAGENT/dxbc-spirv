@@ -1063,6 +1063,11 @@ void SpirvBuilder::emitDclBuiltInIoVar(const ir::Op& op) {
 
       case ir::BuiltIn::ePointCoord:
         return spv::BuiltInPointCoord;
+
+      case ir::BuiltIn::eShadingRate: {
+        enableCapability(spv::CapabilityFragmentShadingRateKHR);
+        return spv::BuiltInShadingRateKHR;
+      }
     }
 
     dxbc_spv_unreachable();
@@ -4960,6 +4965,10 @@ bool SpirvBuilder::enableCapability(spv::Capability cap) {
 
     case spv::CapabilityRawAccessChainsNV:
       enableExtension("SPV_NV_raw_access_chains");
+      break;
+
+    case spv::CapabilityFragmentShadingRateKHR:
+      enableExtension("SPV_KHR_fragment_shading_rate");
       break;
 
     default: ;

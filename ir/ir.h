@@ -763,6 +763,10 @@ enum class BuiltIn : uint32_t {
   eLegacyConstInt     = 37u,
   /** Legacy float constants, as an array of vec4<f32>. */
   eLegacyConstFloat   = 38u,
+  /** Fragment shading rate of the current invocation. Only valid in
+   *  fragment shaders. Must be declared as a scalar unsigned integer,
+   *  following the SPV_KHR_fragment_shading_rate flag encoding. */
+  eShadingRate        = 39u,
 };
 
 
